@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package App::p;
 
-our $VERSION = '0.0001'; # VERSION
+our $VERSION = '0.0002'; # VERSION
 
 # ABSTRACT: Steroids for your perl one-liners.
 
@@ -18,13 +18,13 @@ App::p - Steroids for your perl one-liners.
 
 =head1 VERSION
 
-version 0.0001
+version 0.0002
 
 =head1 SYNOPSIS
 
     p 'dd [File::Spec->path]'   # dynamically load arbitrary modules
     p -pe 's/foo/bar/' foo.txt  # use your favorite options like -lane
-    p 'say "hello world!"       # -E is assumed if no options are provided
+    p 'say "hello world!"'      # -E is assumed if no options are provided
     p 'dd yl r "config.yml"'    # chain commands
     p 'dd ExtUtils::Installed->new->modules' # list all installed modules
 
