@@ -12,20 +12,25 @@ Usage: p [-lneE etc] 'code'
     dd  to Data::Dump::dd()
     jd  to JSON::XS::encode (utf8/pretty)
     jl  to JSON::XS::decode (utf8/allow nonref) a thing
+    xd  to XML::Hash::LX::xml2hash 
+    xl  to XML::Hash::LX::hash2xml
     yd  to YAML::Dump()
     yl  to YAML::Load()
+    sum,first,min,max,zip,uniq,any,all,none ... all of List::AllUtils
 } unless @ARGV;
 unshift @ARGV, '-E' if @ARGV == 1;
 
 exec
     'perl',
     '-Mwarnings',
+    '-MClass::Autouse=:superloader',
+    '-MData::Dump',
     '-MFile::Slurp',
     '-MJSON::XS',
-    '-MData::Dump',
-    '-MYAML::XS',
+    '-MList::AllUtils=:all',
     '-Mutf8::all',
-    '-MClass::Autouse=:superloader',
+    '-MXML::Hash::LX',
+    '-MYAML::XS',
     '-E',
     q[BEGIN {
         sub r  { scalar read_file shift }
@@ -34,6 +39,8 @@ exec
         sub p  { print @_ ? @_ : $_     }
         sub yd { print Dump(shift)      }
         sub yl { Load(shift)            }
+        sub xd { hash2xml(shift)        }
+        sub xl { xml2hash(shift)        }
         sub jd { print JSON::XS->new->utf8->pretty->encode(shift) }
         sub jl { JSON::XS->new->utf8->allow_nonref->decode(shift) }
     }], @ARGV;
@@ -52,7 +59,7 @@ p - Steroids for your perl one-liners.
 
 =head1 VERSION
 
-version 0.0002
+version 0.0100
 
 =head1 SYNOPSIS
 
@@ -67,6 +74,7 @@ version 0.0002
         jl  to JSON::XS::decode (utf8/allow nonref) a thing
         yd  to YAML::Dump()
         yl  to YAML::Load()
+        sum,first,min,max,zip,uniq,any,all,none ... all of List::AllUtils
 
     Examples:
 
@@ -74,7 +82,10 @@ version 0.0002
     p -pe 's/foo/bar/' foo.txt  # use your favorite options like -lane
     p 'say "hello world!"'      # -E is assumed if no options are provided
     p 'dd yl r "config.yml"'    # chain commands
+    p 'S sum 1,2,3,4'           # all of List::AllUtils is at your fingertips
     p 'dd ExtUtils::Installed->new->modules' # list all installed modules
+    p '  dd xl r "/etc/xml/xml-core.xml"'# print dump of hash converted xml
+    p 'p xd xl r "/etc/xml/xml-core.xml"'# print xml converted from hash
 
 =head1 AUTHOR
 

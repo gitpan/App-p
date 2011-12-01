@@ -26,10 +26,12 @@ my %WriteMakefileArgs = (
     "Data::Dump" => 0,
     "File::Slurp" => 0,
     "JSON::XS" => 0,
+    "List::AllUtils" => 0,
+    "XML::Hash::LX" => 0,
     "YAML::XS" => 0,
     "utf8::all" => 0
   },
-  "VERSION" => "0.0002",
+  "VERSION" => "0.0100",
   "test" => {
     "TESTS" => ""
   }
