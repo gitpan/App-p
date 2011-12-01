@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package App::p;
 
-our $VERSION = '0.0100'; # VERSION
+our $VERSION = '0.0101'; # VERSION
 
 # ABSTRACT: Steroids for your perl one-liners.
 
@@ -18,7 +18,7 @@ App::p - Steroids for your perl one-liners.
 
 =head1 VERSION
 
-version 0.0100
+version 0.0101
 
 =head1 SYNOPSIS
 
@@ -31,6 +31,8 @@ version 0.0100
         dd  to Data::Dump::dd()
         jd  to JSON::XS::encode (utf8/pretty)
         jl  to JSON::XS::decode (utf8/allow nonref) a thing
+        xd  to XML::Hash::LX::hash2xml()
+        xl  to XML::Hash::LX::xml2hash()
         yd  to YAML::Dump()
         yl  to YAML::Load()
         sum,first,min,max,zip,uniq,any,all,none ... all of List::AllUtils
