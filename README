@@ -2,7 +2,7 @@ NAME
     App::p - Steroids for your perl one-liners.
 
 VERSION
-    version 0.0101
+    version 0.0102
 
 SYNOPSIS
         Usage: p [-lneE etc] 'code'
