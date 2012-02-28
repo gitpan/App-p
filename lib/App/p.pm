@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package App::p;
 
-our $VERSION = '0.0102'; # VERSION
+our $VERSION = '0.0200'; # VERSION
 
 # ABSTRACT: Steroids for your perl one-liners.
 
@@ -18,7 +18,7 @@ App::p - Steroids for your perl one-liners.
 
 =head1 VERSION
 
-version 0.0102
+version 0.0200
 
 =head1 SYNOPSIS
 
@@ -28,6 +28,7 @@ version 0.0102
         w   to File::Slurp::write_file
         S   to say()
         p   to print()
+        io  to access an IO::All object (with HTTP support)
         dd  to Data::Dump::dd()
         jd  to JSON::XS::encode (utf8/pretty)
         jl  to JSON::XS::decode (utf8/allow nonref) a thing
@@ -47,6 +48,7 @@ version 0.0102
     p 'dd ExtUtils::Installed->new->modules' # list all installed modules
     p '  dd xl r "/etc/xml/xml-core.xml"'# print dump of hash converted xml
     p 'p xd xl r "/etc/xml/xml-core.xml"'# print xml converted from hash
+    p 'p io("http://icanhazip.com")->all' # supports IO::All with HTTP
 
 =head1 ACKNOWLEDGEMENTS
 
