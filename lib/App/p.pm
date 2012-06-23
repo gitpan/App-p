@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package App::p;
 
-our $VERSION = '0.0200'; # VERSION
+our $VERSION = '0.0300'; # VERSION
 
 # ABSTRACT: Steroids for your perl one-liners.
 
@@ -18,7 +18,7 @@ App::p - Steroids for your perl one-liners.
 
 =head1 VERSION
 
-version 0.0200
+version 0.0300
 
 =head1 SYNOPSIS
 
@@ -28,7 +28,6 @@ version 0.0200
         w   to File::Slurp::write_file
         S   to say()
         p   to print()
-        io  to access an IO::All object (with HTTP support)
         dd  to Data::Dump::dd()
         jd  to JSON::XS::encode (utf8/pretty)
         jl  to JSON::XS::decode (utf8/allow nonref) a thing
@@ -36,6 +35,7 @@ version 0.0200
         xl  to XML::Hash::LX::xml2hash()
         yd  to YAML::Dump()
         yl  to YAML::Load()
+        get,head,getprint,getstore,mirror from LWP::Simple
         sum,first,min,max,zip,uniq,any,all,none ... all of List::AllUtils
 
     Examples:
@@ -46,9 +46,9 @@ version 0.0200
     p 'dd yl r "config.yml"'    # chain commands
     p 'S sum 1,2,3,4'           # all of List::AllUtils is at your fingertips
     p 'dd ExtUtils::Installed->new->modules' # list all installed modules
-    p '  dd xl r "/etc/xml/xml-core.xml"'# print dump of hash converted xml
-    p 'p xd xl r "/etc/xml/xml-core.xml"'# print xml converted from hash
-    p 'p io("http://icanhazip.com")->all' # supports IO::All with HTTP
+    p '  dd xl r "/etc/xml/xml-core.xml"'    # print dump of hash converted xml
+    p 'p xd xl r "/etc/xml/xml-core.xml"'    # print xml converted from hash
+    p 'p get "http://icanhazip.com"'         # print contents of url
 
 =head1 ACKNOWLEDGEMENTS
 

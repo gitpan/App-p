@@ -25,16 +25,15 @@ my %WriteMakefileArgs = (
     "Class::Autouse" => 0,
     "Data::Dump" => 0,
     "File::Slurp" => 0,
-    "IO::All" => 0,
-    "IO::All::HTTP" => 0,
     "JSON::XS" => 0,
+    "LWP::Simple" => 0,
     "List::AllUtils" => 0,
     "Pod::Usage" => 0,
     "XML::Hash::LX" => 0,
     "YAML::XS" => 0,
     "utf8::all" => 0
   },
-  "VERSION" => "0.0200",
+  "VERSION" => "0.0300",
   "test" => {
     "TESTS" => ""
   }
