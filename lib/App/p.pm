@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package App::p;
 
-our $VERSION = '0.0300'; # VERSION
+our $VERSION = '0.0301'; # VERSION
 
 # ABSTRACT: Steroids for your perl one-liners.
 
@@ -18,7 +18,7 @@ App::p - Steroids for your perl one-liners.
 
 =head1 VERSION
 
-version 0.0300
+version 0.0301
 
 =head1 SYNOPSIS
 
