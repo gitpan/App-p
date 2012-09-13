@@ -1,26 +1,16 @@
-use strict;
-use warnings;
-package App::p;
+# About
 
-our $VERSION = '0.0302'; # VERSION
+    Steroids for your perl one-liners. Is that even possible?
 
-# ABSTRACT: Steroids for your perl one-liners.
+# Installation
 
+    sudo cpan App::p
 
-1;
+# Documentation
 
-__END__
-=pod
+See [App::p](https://metacpan.org/module/App::p)
 
-=head1 NAME
-
-App::p - Steroids for your perl one-liners.
-
-=head1 VERSION
-
-version 0.0302
-
-=head1 SYNOPSIS
+# Usage
 
     Usage: p [-lneE etc] 'code'
         The code can make use of:
@@ -38,7 +28,7 @@ version 0.0302
         get,head,getprint,getstore,mirror from LWP::Simple
         sum,first,min,max,zip,uniq,any,all,none ... all of List::AllUtils
 
-    Examples:
+# Examples
 
     p 'dd [File::Spec->path]'   # dynamically load arbitrary modules
     p -pe 's/foo/bar/' foo.txt  # use your favorite options like -lane
@@ -49,23 +39,3 @@ version 0.0302
     p '  dd xl r "/etc/xml/xml-core.xml"'    # print dump of hash converted xml
     p 'p xd xl r "/etc/xml/xml-core.xml"'    # print xml converted from hash
     p 'p get "http://icanhazip.com"'         # print contents of url
-
-=head1 ACKNOWLEDGEMENTS
-
-This is based on Randy Stauner's
-L<http://blogs.perl.org/users/randy_stauner/2011/06/exploratory-one-liners-with-less-typing.html>
-and Marco Fontani's L<https://gist.github.com/1042504>.
-
-=head1 AUTHOR
-
-Naveed Massjouni <naveedm9@gmail.com>
-
-=head1 COPYRIGHT AND LICENSE
-
-This software is copyright (c) 2011 by Naveed Massjouni.
-
-This is free software; you can redistribute it and/or modify it under
-the same terms as the Perl 5 programming language system itself.
-
-=cut
-
