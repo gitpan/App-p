@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package App::p;
 
-our $VERSION = '0.0302'; # VERSION
+our $VERSION = '0.0303'; # VERSION
 
 # ABSTRACT: Steroids for your perl one-liners.
 
@@ -10,6 +10,7 @@ our $VERSION = '0.0302'; # VERSION
 1;
 
 __END__
+
 =pod
 
 =head1 NAME
@@ -18,7 +19,7 @@ App::p - Steroids for your perl one-liners.
 
 =head1 VERSION
 
-version 0.0302
+version 0.0303
 
 =head1 SYNOPSIS
 
@@ -68,4 +69,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

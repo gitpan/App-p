@@ -22,18 +22,19 @@ my %WriteMakefileArgs = (
   "LICENSE" => "perl",
   "NAME" => "App::p",
   "PREREQ_PM" => {
-    "Class::Autouse" => 0,
     "Data::Dump" => 0,
     "File::Slurp" => 0,
     "JSON::XS" => 0,
+    "L" => 0,
     "LWP::Simple" => 0,
     "List::AllUtils" => 0,
     "Pod::Usage" => 0,
+    "Scalar::Util" => 0,
     "XML::Hash::LX" => 0,
     "YAML::XS" => 0,
     "utf8::all" => 0
   },
-  "VERSION" => "0.0302",
+  "VERSION" => "0.0303",
   "test" => {
     "TESTS" => ""
   }

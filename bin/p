@@ -3,32 +3,33 @@ use strict;
 use warnings;
 use Pod::Usage;
 
+our $VERSION = '0.0303'; # VERSION
+
 pod2usage() unless @ARGV;
 
 unshift @ARGV, '-E' if @ARGV == 1;
 
 exec
-    'perl',
-    '-Mwarnings',
-    '-MClass::Autouse=:superloader',
+    $^X,
+    '-Mwarnings=all',
+    '-M-warnings=deprecated',
+    '-ML',
     '-MData::Dump',
-    '-MFile::Slurp',
-    '-MJSON::XS',
     '-MList::AllUtils=:all',
-    '-MLWP::Simple',
+    (grep { /\b(?:get(?:print|store)?|head|mirror)\b/x } @ARGV)
+        ? ('-MLWP::Simple')
+        : (),
     '-Mutf8::all',
-    '-MXML::Hash::LX',
-    '-MYAML::XS',
     '-E',
     q[BEGIN {
-        sub r  { scalar read_file shift }
-        sub w  { write_file @_          }
+        sub r  { scalar File::Slurp::read_file(shift) }
+        sub w  { File::Slurp::write_file(@_)          }
         sub S  { say @_ ? @_ : $_       }
         sub p  { print @_ ? @_ : $_     }
-        sub yd { print Dump(shift)      }
-        sub yl { Load(shift)            }
-        sub xd { print hash2xml(shift)  }
-        sub xl { xml2hash(shift)        }
+        sub yd { print YAML::XS::Dump(shift)          }
+        sub yl { YAML::XS::Load(shift)                }
+        sub xd { print XML::Hash::LX::hash2xml(shift) }
+        sub xl { XML::Hash::LX::xml2hash(shift)       }
         sub jd { print JSON::XS->new->utf8->pretty->encode(shift) }
         sub jl { JSON::XS->new->utf8->allow_nonref->decode(shift) }
     }], @ARGV;
@@ -37,8 +38,8 @@ exec
 # PODNAME: p
 # ABSTRACT: Steroids for your perl one-liners.
 
-
 __END__
+
 =pod
 
 =head1 NAME
@@ -47,7 +48,7 @@ p - Steroids for your perl one-liners.
 
 =head1 VERSION
 
-version 0.0302
+version 0.0303
 
 =head1 SYNOPSIS
 
@@ -91,4 +92,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
