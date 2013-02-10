@@ -2,13 +2,13 @@ NAME
     App::p - Steroids for your perl one-liners.
 
 VERSION
-    version 0.0303
+    version 0.0304
 
 SYNOPSIS
         Usage: p [-lneE etc] 'code'
             The code can make use of:
-            r   to File::Slurp::read_file
-            w   to File::Slurp::write_file
+            r   to File::Slurp::read_file()
+            w   to File::Slurp::write_file()
             S   to say()
             p   to print()
             dd  to Data::Dump::dd()
@@ -32,6 +32,16 @@ SYNOPSIS
         p '  dd xl r "/etc/xml/xml-core.xml"'    # print dump of hash converted xml
         p 'p xd xl r "/etc/xml/xml-core.xml"'    # print xml converted from hash
         p 'p get "http://icanhazip.com"'         # print contents of url
+        p 'dd uniq map $_->{ostext}, @{ jl get "http://www.cpantesters.org/distro/A/App-p.json" }' # have fun!
+
+CONTRIBUTORS
+    *   datamuc <<https://github.com/datamuc>>
+
+    *   Stanislaw Pusep <<https://github.com/creaktive>>
+
+    *   Stefan Corneliu Petrea <<https://github.com/wsdookadr>>
+
+    *   Tommy Stanton <<https://github.com/tommystanton>>
 
 ACKNOWLEDGEMENTS
     This is based on Randy Stauner's
